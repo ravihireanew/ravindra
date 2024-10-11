@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumbha Ravindra - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <img src="IMG-20240506-WA0004.jpg" alt="Kumbha Ravindra" class="profile-img">
+            <h1>Kumbha Ravindra</h1>
+            <p>Pharmaceutical Engineering Student | Research Enthusiast | Quality Assurance | Marketing</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-list">
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am a third-year Pharmaceutical Engineering student at Kakinada Institute of Technological Sciences. I have hands-on experience in quality assurance, pharmaceutical research, and IT skills. I am passionate about research and development, and eager to contribute to impactful projects in the pharmaceutical industry.</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <img src="NRT.jpeg" alt="Nicotine">
+                    <h3>DEVELOPING AND VALIDATION THE NICOTINE METABOLITE RATIO FOR TARGET TOBACCO ADDICTION TREATMENT</h3>
+                    <button class="view-more" data-project="1">View More</button>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <img src="Abstract 12345.png" alt="Escitalopram Toxicity">
+                    <h3>  Toxicity profiles of Escitalopram: Understanding dose-dependent adverse effects on Zebrafish (D. rerio) larvae.</h3>
+                        
+                    <button class="view-more" data-project="2">View More</button>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Project Details -->
+        <div id="project-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3 id="modal-title"></h3>
+                <img id="modal-image" src="">
+                <p id="modal-description"></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <img src="DRDO.jpg" alt="DRDO Internship">
+                    <h3>Intern - DIA-CoE BU (formerly DRDO-BU-CLS)</h3>
+                    <p>June 2024 - August 2024</p>
+                </div>
+                <div class="experience-card">
+                    <img src="Workshop.jpg" alt="Workshop">
+                    <h3>Workshop - Soldier Support Technologies</h3>
+                    <p>September 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul>
+                <li>Pharmaceutical Sciences</li>
+                <li>Research & Data Analysis</li>
+                <li>Quality Assurance & Control</li>
+                <li>Language Editing</li>
+                <li>IT Skills: Microsoft Office</li>
+                <li>GraphPad Prism</li>
+                <li>Skilled in relationship management, fostering strong client partnerships.</li>
+                <li>Experienced in social media marketing and optimizing ad strategies for recruitment.</li>
+                <li>Knowledgeable in recruitment trends within the pharmaceutical, life sciences, and biotech sectors.</li>
+                <li><b>Technical Skills:</b> Proficient in MS Office Suite; basic knowledge of web development and JavaScript.</li>
+                <li><b>Communication:</b> Strong written and verbal communication skills; ability to present complex information clearly</li> 
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="social-icons">
+                <a href="mailto:ravindra.81420@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/kumbha-ravindra-497a30326/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/YourGitHubProfile" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Kumbha Ravindra. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
