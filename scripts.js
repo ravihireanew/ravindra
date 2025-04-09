@@ -1,53 +1,53 @@
-// Mobile menu toggle
-const mobileMenu = document.getElementById('mobile-menu');
-const navList = document.querySelector('.nav-list');
+// Simple animation on scroll
+const sections = document.querySelectorAll('.section');
 
-mobileMenu.addEventListener('click', () => {
-    navList.classList.toggle('show');
-});
+const revealOnScroll = () => {
+  const triggerBottom = window.innerHeight * 0.85;
 
-// Smooth scroll for anchor links
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
 
-// Project modal view functionality
-const projectModal = document.getElementById('project-modal');
-const modalTitle = document.getElementById('modal-title');
-const modalImage = document.getElementById('modal-image');
-const modalDescription = document.getElementById('modal-description');
-const viewMoreButtons = document.querySelectorAll('.view-more');
-
-viewMoreButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        const projectId = e.target.dataset.project;
-        if (projectId === '1') {
-            modalTitle.textContent = 'Nicotine Metabolite Ratio';
-            modalImage.src = 'project1.jpg';
-            modalDescription.textContent = 'Investigated the role of the nicotine metabolite ratio (NMR) as a biomarker to guide smoking cessation treatment.';
-        } else if (projectId === '2') {
-            modalTitle.textContent = 'Escitalopram Toxicity';
-            modalImage.src = 'Abstract 12345.png';
-            modalDescription.textContent = 'Investigated the dose-dependent toxicity of the antidepressant escitalopram on zebrafish larvae.';
-        }
-        projectModal.style.display = 'block';
-    });
-});
-
-// Close modal
-const closeBtn = document.querySelector('.close');
-closeBtn.addEventListener('click', () => {
-    projectModal.style.display = 'none';
-});
-
-// Close modal when clicking outside the modal
-window.addEventListener('click', (e) => {
-    if (e.target === projectModal) {
-        projectModal.style.display = 'none';
+    if (sectionTop < triggerBottom) {
+      section.classList.add('show');
     }
-});
+  });
+};
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+// Add fade-in effect
+const style = document.createElement('style');
+style.textContent = `
+  .section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+  }
+
+  .section.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .icon-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: #0077cc;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+  }
+
+  .icon-link:hover {
+    color: #005fa3;
+  }
+`;
+document.head.appendChild(style);
+
+// Add Font Awesome icons dynamically
+const fontAwesome = document.createElement('link');
+fontAwesome.rel = 'stylesheet';
+fontAwesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css';
+document.head.appendChild(fontAwesome);
