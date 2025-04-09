@@ -1,130 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kumbha Ravindra - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kumbha Ravindra | Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    
+    
+  body {
+    background: linear-gradient(135deg, #c9eaf3, #f8f9fa);
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Particle background */
+  .particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(0, 119, 204, 0.4);
+    border-radius: 50%;
+    animation: float 10s infinite ease-in-out;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(100vh) scale(1);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(-10vh) scale(0.5);
+      opacity: 0;
+    }
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(14px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1000px;
+    transition: transform 0.3s;
+    position: relative;
+    z-index: 1;
+  }
+
+  .glass:hover {
+    transform: translateY(-5px);
+  }
+
+  .navbar {
+    transition: background-color 0.3s ease-in-out;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    z-index: 2;
+    position: relative;
+  }
+
+  .navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .resume-button {
+    background: #0077cc;
+    color: white;
+    padding: 0.75rem 1.6rem;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    position: relative;
+  }
+
+  .resume-button:hover {
+    transform: scale(1.08);
+    background: #005fa3;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: scale(1.03);
+  }
+
+  .hero {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: linear-gradient(to bottom right, #e0f7ff, #ffffff);
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #0077cc;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.7rem;
+    color: #0077cc;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    color: #444;
+  }
+
+  .section h2 {
+    color: #0077cc;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+    background: #f1f1f1;
+    color: #777;
+  }
+
+  .icon-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.15rem;
+    margin: 0.3rem 0;
+    text-decoration: none;
+    color: #0077cc;
+  }
+
+  .icon-link i {
+    font-size: 1.3rem;
+  }
+
+  .icon-link:hover {
+    color: #005fa3;
+  }
+</style>
+  
 </head>
-
 <body>
-    <header>
-        <div class="container">
-            <img src="IMG-20240506-WA0004.jpg" alt="Kumbha Ravindra" class="profile-img">
-            <h1>Kumbha Ravindra</h1>
-            <p>Pharmaceutical Engineering Student | Research Enthusiast | Quality Assurance | Marketing</p>
-        </div>
-    </header>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">Kumbha Ravindra</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-    <nav>
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-        <ul class="nav-list">
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+  <!-- Hero Section -->
+  <header class="hero">
+    <img src="IMG-20240506-WA0004.jpg" alt="Profile" class="hero-img">
+    <h1>Kumbha Ravindra</h1>
+    <p>Pharmaceutical Engineering Student | Research Intern</p>
+    <a href="Ravindra resume.pdf" download class="resume-button">
+      <i class="fas fa-download"></i> Download Resume
+    </a>
+  </header>
 
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>I am a third-year Pharmaceutical Engineering student at Kakinada Institute of Technological Sciences. I have hands-on experience in quality assurance, pharmaceutical research, and IT skills. I am passionate about research and development, and eager to contribute to impactful projects in the pharmaceutical industry.</p>
-        </div>
-    </section>
+  <!-- About Section -->
+  <section id="about" class="section glass">
+    <h2>About Me</h2>
+    <p>A focused and ambitious Pharmaceutical Engineering student with a strong academic foundation and hands-on
+      research experience. I have contributed to important research projects, including toxicity studies on zebrafish and
+      investigations into the effects of escitalopram, as well as developing and validating nicotine metabolite ratios for
+      targeted tobacco treatments. My certifications in drug discovery and pharmaceutical instrumental analysis
+      techniques further enhance my research skills and technical expertise.
+      I am passionate about scientific inquiry and have honed my analytical, problem-solving, and research skills through
+      various projects. I am eager to contribute to innovative, research-driven environments and continue expanding my
+      pharmaceutical and biotechnology knowledge</p>
+  </section>
 
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <img src="NRT.jpeg" alt="Nicotine">
-                    <h3>DEVELOPING AND VALIDATION THE NICOTINE METABOLITE RATIO FOR TARGET TOBACCO ADDICTION TREATMENT</h3>
-                    <button class="view-more" data-project="1">View More</button>
-                </div>
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <img src="Abstract 12345.png" alt="Escitalopram Toxicity">
-                    <h3>  Toxicity profiles of Escitalopram: Understanding dose-dependent adverse effects on Zebrafish (D. rerio) larvae.</h3>
-                        
-                    <button class="view-more" data-project="2">View More</button>
-                </div>
-            </div>
-        </div>
-        <!-- Modal for Project Details -->
-        <div id="project-modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h3 id="modal-title"></h3>
-                <img id="modal-image" src="">
-                <p id="modal-description"></p>
-            </div>
-        </div>
-    </section>
+  <!-- Projects Section -->
+  <section id="projects" class="section glass">
+    <h2>Projects</h2>
+    <div class="card">
+      <h3>Developing and Validation of Nicotine Metabolite Ratio for Target Tobacco Treatment </h3>
+      <p><li>Conducted an extensive literature review on phenotypic biomarkers for nicotine metabolism.</li>
+       <li>Analyzed clinical trials to evaluate the effectiveness of NMR in predicting responses to different smoking
+        cessation therapies.</li>
+        <li>Assessed the influence of factors such as genetics, estrogen levels, alcohol use, body mass index, and
+          menthol exposure on nicotine metabolism.
+          </li>
+          <li>Recommended treatment options based on NMR classification, such as nicotine replacement therapy for
+            slow metabolizers and non-nicotine pharmacotherapies for normal metabolizers.
+            </li>
+            <li>Proposed future research directions to enhance understanding of NMR associations with therapeutic
+              outcomes</li>
+              <p><strong>Outcome:</strong> Established NMR as a promising biomarker to individualize smoking cessation treatment, with the
+                potential for clinical implementation to reduce relapse rates. </p>
+      </p>
+    </div>
+    <div class="card">
+      <h3>Toxicity Profiles of Escitalopram: Understanding dose-dependent adverse Effects on Zebrafish (D. rerio)
+        Larvae. </h3>
+      <p>
+        <li>Conducted in vivo experiments administering escitalopram at concentrations ranging from 2 mg/L to 100
+          mg/L to zebrafish embryos post-fertilization. </li>
+        <li>Monitored and recorded morphological and developmental deformities at multiple time points (48hpf and
+          96hpf).</li>
+          <li>Assessed toxicological parameters such as heart rate, yolk sac edema, spinal deformities, scoliosis, pericardial
+            edema, hatching rate, and mortality rate. </li>
+            <li>Investigated the production of reactive oxygen species (ROS), necrosis, and apoptosis as indicators of
+              escitalopram toxicity.</li>
+      </p>
+      <p><strong>Outcome:</strong> Identified dose-dependent toxic effects of escitalopram, with significant morphological deformities and
+        increased mortality observed at higher concentrations. Provided valuable insights into the potential environmental
+        risks of SSRIs on aquatic organisms.
+        </p>
+    </div>
+  </section>
 
-    <section id="experience">
-        <div class="container">
-            <h2>Experience</h2>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <img src="DRDO.jpg" alt="DRDO Internship">
-                    <h3>Intern - DIA-CoE BU (formerly DRDO-BU-CLS)</h3>
-                    <p>June 2024 - August 2024</p>
-                </div>
-                <div class="experience-card">
-                    <img src="Workshop.jpg" alt="Workshop">
-                    <h3>Workshop - Soldier Support Technologies</h3>
-                    <p>September 2024</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Experience Section -->
+  <section id="experience" class="section glass">
+    <h2>Experience</h2>
+    <div class="card">
+      <h3>Project Intern – DRDO, Coimbatore</h3>
+      <p>June 2024 - Sept 2024</p>
+      <p><li>Conducted research on the Effects of Escitalopram on Zebrafish, utilizing advanced laboratory techniques and
+        instruments such as DLS (Dynamic Light Scattering), UV-VIS Spectrophotometer, XRD (X-ray Diffraction), and
+        ICP-MS (Inductively Coupled Plasma- Mass spectrophotometer) for data analysis and reporting.</li>
+        <li>Gained hands-on experience in chromatographic analysis, including method development and validation in
+        compliance with GLP standards.</li>
+        <li>Collaborated with senior scientists in performing toxicity studies on zebrafish, ensuring accurate preparation
+        and analysis of samples.</li>
+       <li>Demonstrated proficiency in XRD analysis, wet lab procedures, and other instrumental techniques crucial for
+        pharmaceutical research.</li>
+        <li>Actively contributed to preparing project evaluation reports, ensuring data accuracy and compliance with
+        regulatory requirements. </li></p>
+    </div>
+    
+  </section>
 
-    <section id="skills">
-        <div class="container">
-            <h2>Skills</h2>
-            <ul>
-                <li>Pharmaceutical Sciences</li>
-                <li>Research & Data Analysis</li>
-                <li>Quality Assurance & Control</li>
-                <li>Language Editing</li>
-                <li>IT Skills: Microsoft Office</li>
-                <li>GraphPad Prism</li>
-                <li>Skilled in relationship management, fostering strong client partnerships.</li>
-                <li>Experienced in social media marketing and optimizing ad strategies for recruitment.</li>
-                <li>Knowledgeable in recruitment trends within the pharmaceutical, life sciences, and biotech sectors.</li>
-                <li><b>Technical Skills:</b> Proficient in MS Office Suite; basic knowledge of web development and JavaScript.</li>
-                <li><b>Communication:</b> Strong written and verbal communication skills; ability to present complex information clearly</li> 
-            </ul>
-        </div>
-    </section>
+  <!-- Certifications Section -->
+  <section id="certifications" class="section glass">
+    <h2>Certifications</h2>
+    <ul>
+      <li><a href="https://www.udemy.com/certificate/UC-0f53aa2e-fdfa-4305-9719-a21e6c395da8/">Pharma Instrumental Techniques – Udemy</a></li>
+      <li><a href="https://pharmastate.academy/tutor-certificate-8/?cert_hash=b32530bde79f2341">Analytical Techniques – Pharmastate</a></li>
+      <li><a href="https://www.coursera.org/account/accomplishments/verify/TEJGRJGHQ6R5">Drug Discovery – Coursera</a></li>
+      <li>Good Clinical Practice – NIDA</li>
+    </ul>
+  </section>
 
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <div class="social-icons">
-                <a href="mailto:ravindra.81420@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/kumbha-ravindra-497a30326/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/YourGitHubProfile" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </section>
+  <!-- Publications Section -->
+  <section id="publications" class="section glass">
+    <h2>Publications</h2>
+    <p><strong><a href="https://www.abap.co.in/index.php/home/article/view/1802">Valproic Acid Induces Zebrafish Embryonic Developmental Defects by Inducing Oxidative Stress-mediated Apoptosis: Dose and Time-dependent Analysis</strong> </a></p>
+  </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Kumbha Ravindra. All Rights Reserved.</p>
-        </div>
-    </footer>
+  <!-- Contact Section -->
+  <section id="contact" class="section glass">
+    <h2>Contact</h2>
+    <p><a href="mailto:ravindra.81420@gmail.com" class="icon-link"><i class="fas fa-envelope"></i> ravindra.81420@gmail.com</a></p>
+    <p><a href="tel:+919014061789" class="icon-link"><i class="fas fa-phone"></i> +91 9014061789</a></p>
+    <p><a href="https://www.linkedin.com/in/kumbha-ravindra" class="icon-link" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+    <p><a href="https://github.com/yourusername" class="icon-link" target="_blank"><i class="fab fa-github"></i> GitHub</a></p>
+  </section>
 
-    <script src="scripts.js"></script>
+  <footer>
+    <p>© 2025 Kumbha Ravindra</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
 </body>
-
 </html>
